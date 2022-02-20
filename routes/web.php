@@ -18,3 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
+=======
+Route::get('/main', [MainController::class, 'index']);
+Route::post('/main/checklogin', [MainController::class, 'checklogin']);
+Route::get('main/successlogin', [MainController::class, 'successlogin']);
+Route::get('main/logout', [MainController::class, 'logout']);
+>>>>>>> 66e2b0650966fdc9d50262954a5c4bbf650e6681
