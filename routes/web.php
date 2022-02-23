@@ -30,3 +30,7 @@ Route::get('main/registro',function (){
 // Route::view('registro',"registro");
 Route::post('/main/registro',[MainController::class, ('saveUser')]);
 // [MainController::class,view('registro')])
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -46,12 +46,18 @@ class MainController extends Controller
     function saveUser(Request $request){
         $user = new User();
         $user->name = $request->input("name");
+        $user->username = $request->input("username");
         $user->email = $request->input("email");
-        $user->password = Hash::$request->input("password");
-        $user->remember_token = str_random(10);
+        $user->password = $request->input("password");
+        // $user->password => Hash::make($request->password);
+        // $user->remember_token = str_random(10);
         $user->save();
         $user = User::all();
-        $this->checklogin($user);
+        $request = [
+            'email'=> $user.email,
+            'password'=> $user.password
+        ];
+        $this->checklogin($request);
         return view('successlogin');
     }
     function logout()
